@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body style="text-align: center;">
+  <body style="text-align: center;" onload="start()">
 <div id="introscreen">
 <h1>Welcome to GuesserMan!!</h1>
 <button onclick="choosedifficulty()">PLAY</button>
 </div>
 
 <div id="difficulties">
-<button>Easy</button> <button>Medium</button> <button>Hard</button>
+<button onclick="easydiff()">Easy</button> <button onclick="meddiff()">Medium</button> <button onclick="harddiff()">Hard</button>
 </div>
 
     <div id="maingame">
@@ -22,27 +22,50 @@
 
 
 <script>
-  document.getElementById("introscreen").style.visibility = "visible";
-  document.getElementById("difficulties").style.visibility = "hidden";
-  document.getElementById("maingame").style.visibility = "hidden";
+  function start() {
+    document.getElementById("introscreen").style.visibility = "visible";
+    document.getElementById("difficulties").style.visibility = "hidden";
+    document.getElementById("maingame").style.visibility = "hidden";
+  }
+
 
   function choosedifficulty() {
     document.getElementById("introscreen").style.visibility = "hidden";
-  document.getElementById("difficulties").style.visibility = "visible";
+    document.getElementById("difficulties").style.visibility = "visible";
   }
 
-  randomNum100 = Math.floor(Math.random() * 100);
-  console.log(randomNum100);
 
+
+  function easydiff() {
+    randomNum = Math.floor(Math.random() * 100);
+    console.log(randomNum);
+    document.getElementById("difficulties").style.visibility = "hidden";
+    document.getElementById("maingame").style.visibility = "visible";
+  }
+
+  function meddiff() {
+    randomNum = Math.floor(Math.random() * 500);
+    console.log(randomNum);
+    document.getElementById("difficulties").style.visibility = "hidden";
+    document.getElementById("maingame").style.visibility = "visible";
+
+  }
+  function harddiff() {
+    randomNum = Math.floor(Math.random() * 1000);
+    console.log(randomNum);
+    document.getElementById("difficulties").style.visibility = "hidden";
+    document.getElementById("maingame").style.visibility = "visible";
+
+  }
 
   function guessing() {
   guess = parseInt(document.getElementById("guess").value);
-   if (randomNum100 > guess) {
+   if (randomNum > guess) {
      alert("The number is higher than your guess");
-   } else if (randomNum100 < guess) {
+   } else if (randomNum < guess) {
      alert("The number is lower than your guess");
 
-   } else if (randomNum100 == guess) {
+   } else if (randomNum == guess) {
      alert("You have the correct number!");
    } else {
      alert("please enter a valid number!");
