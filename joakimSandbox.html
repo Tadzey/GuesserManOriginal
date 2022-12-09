@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body style="text-align: center;" onload="start()">
+  <body style="text-align: center;" >
 <div id="introscreen">
 <h1>Welcome to GuesserMan!!</h1>
 <button onclick="choosedifficulty()">PLAY</button>
 </div>
 
-<div id="difficulties">
+<div id="difficulties" style="display:none">
 <button onclick="easydiff()">Easy</button> <button onclick="meddiff()">Medium</button> <button onclick="harddiff()">Hard</button>
 </div>
 
-    <div id="maingame">
+    <div id="maingame" style="display:none">
 <p id="difficulty"></p>
 <p>Enter a random number: <input id="guess"></input></p>
 <button onclick="guessing()">Guess</button><br></br>
@@ -22,9 +22,10 @@
 
 
 <script>
+  window.onload () function start;
   function start() {
     document.getElementById("introscreen").style.visibility = "visible";
-    document.getElementById("difficulties").style.visibility = "hidden";
+    document.getElementById("difficulties").style.visibility = "visible";
     document.getElementById("maingame").style.visibility = "hidden";
   }
 
