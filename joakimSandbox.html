@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="text-align: center;">
+<div id="introscreen">
+<h1>Welcome to GuesserMan!!</h1>
+<button onclick="choosedifficulty()">PLAY</button>
+</div>
+
+<div id="difficulties">
+<button>Easy</button> <button>Medium</button> <button>Hard</button>
+</div>
+
+    <div id="maingame">
+<p id="difficulty"></p>
+<p>Enter a random number: <input id="guess"></input></p>
+<button onclick="guessing()">Guess</button><br></br>
+</div>
+
+
+<script>
+  document.getElementById("introscreen").style.visibility = "visible";
+  document.getElementById("difficulties").style.visibility = "hidden";
+  document.getElementById("maingame").style.visibility = "hidden";
+
+  function choosedifficulty() {
+    document.getElementById("introscreen").style.visibility = "hidden";
+  document.getElementById("difficulties").style.visibility = "visible";
+  }
+
+  randomNum100 = Math.floor(Math.random() * 100);
+  console.log(randomNum100);
+
+
+  function guessing() {
+  guess = parseInt(document.getElementById("guess").value);
+   if (randomNum100 > guess) {
+     alert("The number is higher than your guess");
+   } else if (randomNum100 < guess) {
+     alert("The number is lower than your guess");
+
+   } else if (randomNum100 == guess) {
+     alert("You have the correct number!");
+   } else {
+     alert("please enter a valid number!");
+   }
+  }
+
+
+</script>
+  </body>
+</html>
